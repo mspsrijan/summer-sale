@@ -27,11 +27,8 @@ function updateCart(element) {
   if (orderTotal > 200) {
     enableBtn(applyCouponBtn);
   }
-
-  applyCoupon();
-
   cartTotalElement.innerText = cartTotal.toFixed(2);
-  orderTotalElement.innerText = orderTotal.toFixed(2);
+  applyCoupon();
 }
 
 function applyCoupon() {
@@ -39,8 +36,9 @@ function applyCoupon() {
   if (couponCode === "SELL200") {
     discount = (20 * cartTotal) / 100;
     orderTotal = cartTotal - discount;
-    discountElement.innerText = discount.toFixed(2);
   }
+  discountElement.innerText = discount.toFixed(2);
+  orderTotalElement.innerText = orderTotal.toFixed(2);
 }
 
 function resetCart() {
